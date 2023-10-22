@@ -11,7 +11,7 @@ fn main() {
     let mut pass = String::new();
     println!("Enter the password you want to crack: ");
     io::stdin().read_line(&mut pass).expect("Failed to read input");
-    let pass = pass.trim(); // Usamos una nueva variable `pass` para almacenar la contraseña.
+    let pass = pass.trim();
 
     let mut attempts = 1;
 
@@ -22,7 +22,7 @@ fn main() {
 
     for line in readpasslist.lines() {
         let line = line.expect("Failed to read line");
-        let password = line.trim(); // No necesitas convertirlo en bytes, ya que ya es un String.
+        let password = line.trim(); 
         let mut hasher = Sha256::new();
         hasher.update(password.as_bytes());
         let password_hash = format!("{:x}", hasher.finalize());
